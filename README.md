@@ -7,18 +7,18 @@ This project demonstrates a powerful integration between SvelteKit and Godot, cr
 <table>
     <thead>
     <tr>
-        <th>Berlin</th>
         <th>Dresden</th>
+        <th>Schloss neuschwanstein</th>
         <th>Zugspitze</th>
     </tr>
     </thead>
     <tbody>
     <tr>
         <td>
-            <img src="germany/Gemini_Generated_Image_e9k8qie9k8qie9k8.png" width=400>
+            <img src="germany/Gemini_Generated_Image_u05sg1u05sg1u05s.png" width=400>
         </td>
         <td>
-            <img src="germany/Gemini_Generated_Image_u05sg1u05sg1u05s.png" width=400>
+            <img src="germany/Gemini_Generated_Image_9odrjf9odrjf9odr.png" width=400>
         </td>
         <td>
             <img src="germany/Gemini_Generated_Image_kzi3u2kzi3u2kzi3.png" width=400>
