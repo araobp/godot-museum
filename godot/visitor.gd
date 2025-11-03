@@ -1,8 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const SPRINT_SPEED = 10.0
+const SPEED = 2.0
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENSITIVITY = 0.002
 
@@ -13,7 +12,7 @@ const MOUSE_SENSITIVITY = 0.002
 @onready var camera = $Camera3D
 
 var mouse_captured = false
-const MOUSE_CAPTURE_TIMEOUT = 1.0
+const MOUSE_CAPTURE_TIMEOUT = 5.0
 var mouse_captured_timer = 0.0
 
 func _ready() -> void:
@@ -28,15 +27,15 @@ func _process(delta: float) -> void:
 			mouse_captured_timer = 0.0
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_MIDDLE and event.is_pressed():
-		if mouse_captured:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			mouse_captured = false
-			mouse_captured_timer = 0.0
-		else:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_MIDDLE:
+		if event.is_pressed():
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			mouse_captured = true
 			mouse_captured_timer = MOUSE_CAPTURE_TIMEOUT
+		elif event.is_released():
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			mouse_captured = false
+			mouse_captured_timer = 0.0			
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
 		camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
