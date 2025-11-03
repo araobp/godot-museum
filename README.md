@@ -52,6 +52,10 @@ After exporting, the Godot application files (e.g., `godot.html`, `godot.js`, `g
 
 ## Testing Flow
 
+Flow is very interesting for me as an engineer for a corporate showroom.
+
+I would generate a lot of videos for this personal project instead of those images if I had enough money.
+
 ```
 Workflow
 
