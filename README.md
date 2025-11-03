@@ -49,3 +49,7 @@ To integrate the Godot application into the SvelteKit app, follow these steps:
 4.  **Export:** Click `Export Project`.
 
 After exporting, the Godot application files (e.g., `godot.html`, `godot.js`, `godot.wasm`, `godot.pck`) will be available in the `app/static/` directory of your SvelteKit project, ready to be served.
+
+## Links
+
+- [QR Code Generator](https://qr.io/)
