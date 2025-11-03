@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxydsb3ub7npf"]
+[gd_scene load_steps=12 format=3 uid="uid://bxydsb3ub7npf"]
 
 [ext_resource type="Script" uid="uid://b6b6r6vixcghm" path="res://visitor.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cnigq4ud4m5qj" path="res://Panels/display.tscn" id="2_0xm2m"]
@@ -31,6 +31,13 @@ size = Vector3(20, 1, 20)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lquwl"]
 radius = 0.3
 height = 1.7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0)
 
 [node name="Node3D" type="Node3D"]
 
@@ -108,5 +115,88 @@ light_color = Color(0.89312416, 0.86050564, 0.8371019, 1)
 light_size = 1.0
 shadow_enabled = true
 spot_angle = 50.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Theme" type="Theme" parent="CanvasLayer/Control"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
+
+[node name="Forward" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 400.0
+offset_right = 690.0
+offset_bottom = 545.0
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bvp3")
+text = "↑"
+
+[node name="Backward" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 510.0
+offset_right = 690.0
+offset_bottom = 655.0
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bvp3")
+text = "↓"
+
+[node name="Left" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 447.0
+offset_right = 599.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bvp3")
+text = "←"
+
+		<Button name="Sprint" layout_mode="2" text="Sprint">
+			<RectA
+
+[node name="Release Mouse" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 160.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bvp3")
+text = "Release Mouse"
+
+[node name="Right" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 447.0
+offset_right = 776.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bvp3")
+text = "→"
+
+[node name="Jump" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 705.0
+offset_top = 517.0
+offset_right = 905.0
+offset_bottom = 662.0
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bvp3")
+text = "⎵"
 
 [editable path="museum"]
