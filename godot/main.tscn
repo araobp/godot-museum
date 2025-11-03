@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxydsb3ub7npf"]
+[gd_scene load_steps=11 format=3 uid="uid://bxydsb3ub7npf"]
 
 [ext_resource type="Script" uid="uid://b6b6r6vixcghm" path="res://visitor.gd" id="1_ig7tw"]
-[ext_resource type="Texture2D" uid="uid://pq2pes2s18" path="res://Panels/Gemini_Generated_Image_kzi3u2kzi3u2kzi3.png" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cnigq4ud4m5qj" path="res://Panels/display.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://qr32njsaxi8v" path="res://Museum/museum.tscn" id="3_h2yge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -13,8 +14,11 @@ sky_material = SubResource("ProceduralSkyMaterial_ig7tw")
 [sub_resource type="Environment" id="Environment_h2yge"]
 background_mode = 2
 sky = SubResource("Sky_0xm2m")
+ambient_light_source = 2
+ambient_light_color = Color(0.6398877, 0.63988805, 0.6398878, 1)
+ambient_light_energy = 0.2
 tonemap_mode = 2
-glow_enabled = true
+ssao_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
 
@@ -28,35 +32,33 @@ size = Vector3(20, 1, 20)
 radius = 0.3
 height = 1.7
 
-[sub_resource type="BoxMesh" id="BoxMesh_h2yge"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
-albedo_texture = ExtResource("2_0xm2m")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_lquwl"]
-
 [node name="Node3D" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.8410485, 0.46848494, -0.27047992, 2.7805946e-08, 0.49999994, 0.86602545, 0.5409598, -0.7283694, 0.42052418, 0, 0, 0)
+visible = false
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h2yge")
 
 [node name="Floor" type="StaticBody3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_0xm2m")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_h2yge")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
 shape = SubResource("BoxShape3D_1bvp3")
 
 [node name="Visitor" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.9518342)
 script = ExtResource("1_ig7tw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Visitor"]
@@ -67,12 +69,44 @@ shape = SubResource("CapsuleShape3D_lquwl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 fov = 40.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.3, 0, 1, -3.8063922)
-mesh = SubResource("BoxMesh_h2yge")
+[node name="display1" parent="." instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 0, -4.436)
+path = "res://Panels/Gemini_Generated_Image_u05sg1u05sg1u05s.png"
 
-[node name="Panel" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, -0.3, 0, 0.3, -1.3113417e-08, 0, 1.5438511, -3.6515353)
-material_override = SubResource("StandardMaterial3D_1bvp3")
-mesh = SubResource("PlaneMesh_lquwl")
-skeleton = NodePath("../MeshInstance3D")
+[node name="display2" parent="." instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0, -4.436)
+path = "res://Panels/Gemini_Generated_Image_dh0r2jdh0r2jdh0r.png"
+
+[node name="display3" parent="." instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.436)
+path = "res://Panels/Gemini_Generated_Image_upp517upp517upp5.png"
+
+[node name="display4" parent="." instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0, -4.436)
+path = "res://Panels/Gemini_Generated_Image_ihnvqsihnvqsihnv.png"
+
+[node name="display5" parent="." instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0, -4.436)
+path = "res://Panels/Gemini_Generated_Image_kzi3u2kzi3u2kzi3.png"
+
+[node name="museum" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7046928e-05, 0.0035773516, -0.000218153)
+
+[node name="Light" parent="museum" index="4"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2.8968222, -2.2576792)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="museum/Light" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.057275295, 0)
+light_color = Color(0.89312416, 0.86050564, 0.8371019, 1)
+light_size = 1.0
+shadow_enabled = true
+spot_angle = 50.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="museum/Light" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -9.588392, -0.057275295, 0)
+light_color = Color(0.89312416, 0.86050564, 0.8371019, 1)
+light_size = 1.0
+shadow_enabled = true
+spot_angle = 50.0
+
+[editable path="museum"]
