@@ -50,6 +50,29 @@ To integrate the Godot application into the SvelteKit app, follow these steps:
 
 After exporting, the Godot application files (e.g., `godot.html`, `godot.js`, `godot.wasm`, `godot.pck`) will be available in the `app/static/` directory of your SvelteKit project, ready to be served.
 
-## Links
+## References
+
+### Mulmocast
+
+Although this is interesting, I would prefer Flow rather than this: [mulmocast-cli](https://github.com/receptron/mulmocast-cli)
+
+### Testing Flow
+
+Flow is very interesting for me as an engineer for a corporate showroom.
+
+I would generate a lot of videos for this personal project instead of those images if I had enough money.
+
+```
+Workflow
+
+Generate anime images with Gemini => Generate video with Flow
+```
+
+https://github.com/user-attachments/assets/55131ea5-d56c-41db-82bc-a1dc717cc05c
+
+
+https://github.com/user-attachments/assets/646467a5-dee5-4845-b6ae-ee0a109e06a8
+
+### Links
 
 - [QR Code Generator](https://qr.io/)
