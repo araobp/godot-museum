@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxydsb3ub7npf"]
+[gd_scene load_steps=18 format=3 uid="uid://bxydsb3ub7npf"]
 
 [ext_resource type="Script" uid="uid://b6b6r6vixcghm" path="res://visitor.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cnigq4ud4m5qj" path="res://Panels/display.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://qr32njsaxi8v" path="res://Museum/museum.tscn" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bckoeiohgp4i6" path="res://forward.png" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cnis2oxrc5afa" path="res://forward_pressed.png" id="5_lquwl"]
+[ext_resource type="VideoStream" uid="uid://cau132geb3pb8" path="res://Videos/germany.ogv" id="6_7mycd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -33,6 +34,20 @@ size = Vector3(20, 1, 20)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lquwl"]
 radius = 0.3
 height = 1.7
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_272bh"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5vw27"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7mycd"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kek77"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_5vw27")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_7mycd")
 
 [node name="Node3D" type="Node3D"]
 
@@ -164,3 +179,21 @@ light_color = Color(0.79911095, 0.7418471, 0.570937, 1)
 shadow_enabled = true
 spot_range = 15.0
 spot_angle = 65.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="museum"]
+transform = Transform3D(-6.9938224e-08, 1, -3.9340243e-08, 0, -4.371139e-08, -0.89999986, -1.6, -4.371139e-08, 1.7196166e-15, -7.92, 1.587, 0)
+mesh = SubResource("PlaneMesh_272bh")
+surface_material_override/0 = SubResource("StandardMaterial3D_kek77")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1920, 1080)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SubViewport"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport/SubViewportContainer"]
+layout_mode = 2
+stream = ExtResource("6_7mycd")
+autoplay = true
+loop = true
