@@ -35,6 +35,7 @@ viewport_path = NodePath("LargeDisplay/SubViewport")
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_5vw27")
 emission_enabled = true
+emission_energy_multiplier = 0.7
 emission_texture = SubResource("ViewportTexture_7mycd")
 
 [sub_resource type="BoxMesh" id="BoxMesh_7mycd"]

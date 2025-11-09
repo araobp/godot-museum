@@ -3,6 +3,7 @@ extends Node3D
 @export var api_servers: Array[String]
 @export var video_stream_player: VideoStreamPlayer = null
 @export var default_ld_content: String = "germany"
+@export var for_github_pages: bool = false
 
 const HEADERS = [
 	"Content-Type: application/json"
@@ -10,12 +11,16 @@ const HEADERS = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await _update_content()
+	if for_github_pages:
+		_play_video(default_ld_content)
 
 const TIMER = 5.0;
 var accumulator = 0.0;
 
 func _process(delta: float) -> void:
+	if for_github_pages:
+		return
+		
 	accumulator += delta
 	if accumulator > TIMER:	
 		accumulator = 0.0
