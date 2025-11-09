@@ -29,27 +29,30 @@ func _process(delta: float) -> void:
 var current_ld_content = null
 
 func _update_content():
-	var err = OK
+	var success = false
+	var res
 	for api_server in api_servers:
+		print(api_server)
 		var api = "{api_server}/large_display".format({"api_server": api_server})
 		# print(api)
-		err = $HTTPRequest.request(
+		$HTTPRequest.request(
 			api,
 			HEADERS,
 			HTTPClient.METHOD_GET
 		)
-		if err == OK:
+		res = await $HTTPRequest.request_completed
+		#print(res)
+		if res[0] == OK:
+			success = true
 			break
+
+	if not success:
+		return
 		
-	if err != OK:
-		return error_string(err)
-		
-	var res = await $HTTPRequest.request_completed
 	var body = res[3]
 	var json = JSON.parse_string(body.get_string_from_utf8())
-	#print(json)
 	_play_video(json["ld_content"])
-	return
+	
 
 func _play_video(ld_content):
 		

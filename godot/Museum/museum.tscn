@@ -5,7 +5,7 @@
 
 [node name="museum" instance=ExtResource("1_gh3s1")]
 
-[node name="Plants" type="Node3D" parent="." index="8"]
+[node name="Plants" type="Node3D" parent="." index="7"]
 
 [node name="plant1" parent="Plants" index="0" instance=ExtResource("2_hn60f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.379756, 0.6501369, 0.5734501)
