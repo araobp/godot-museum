@@ -48,7 +48,7 @@
             aria-labelledby="simulation-tab"
             tabindex="0"
         >
-            <iframe style="width: 100%; height: 100%;" src="/godot.html"> </iframe>
+            <iframe style="width: 100%; height: 100%;" src="/index.html"> </iframe>
         </div>
     </div>
 </div>

@@ -1,20 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://qr32njsaxi8v"]
+[gd_scene load_steps=2 format=3 uid="uid://qr32njsaxi8v"]
 
 [ext_resource type="PackedScene" uid="uid://bne1rb5w6n8gf" path="res://Museum/museum.glb" id="1_gh3s1"]
-[ext_resource type="PackedScene" uid="uid://8yqgnren2ccc" path="res://Museum/plant1.fbx" id="2_hn60f"]
 
 [node name="museum" instance=ExtResource("1_gh3s1")]
-
-[node name="Plants" type="Node3D" parent="." index="7"]
-
-[node name="plant1" parent="Plants" index="0" instance=ExtResource("2_hn60f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.379756, 0.6501369, 0.5734501)
-
-[node name="plant4" parent="Plants" index="1" instance=ExtResource("2_hn60f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.499798, 0.6501369, -0.5666084)
-
-[node name="plant6" parent="Plants" index="2" instance=ExtResource("2_hn60f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.435177, 0.6501369, -0.5666084)
-
-[node name="plant3" parent="Plants" index="3" instance=ExtResource("2_hn60f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.367817, 0.6501369, 0.51772785)
