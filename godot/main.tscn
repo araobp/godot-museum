@@ -28,9 +28,13 @@ ambient_light_source = 2
 ambient_light_color = Color(0.2665752, 0.26657522, 0.26657513, 1)
 tonemap_mode = 2
 glow_enabled = true
-glow_levels/2 = 2.75
-glow_levels/4 = 1.83
-glow_levels/5 = 3.75
+glow_levels/1 = 9.0
+glow_levels/2 = 9.0
+glow_levels/3 = 9.0
+glow_levels/4 = 9.0
+glow_levels/5 = 9.0
+glow_levels/6 = 9.0
+glow_levels/7 = 9.0
 glow_blend_mode = 1
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5vw27"]
@@ -402,7 +406,7 @@ spot_range = 15.0
 spot_angle = 60.0
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="museum/Spotlights"]
-transform = Transform3D(1, -1.8713763e-08, -7.692016e-09, 1.4644286e-11, -4.3786713e-08, 1, 0, -1.0000001, -5.5486453e-08, -0.6284469, 2.8992155, 4.992056)
+transform = Transform3D(1, -1.8713763e-08, -7.69203e-09, 1.4644286e-11, -4.3815817e-08, 1, 0, -1.0000001, -5.5515557e-08, -0.6284266, 2.9068086, 4.9920583)
 light_color = Color(0.79911095, 0.7418471, 0.570937, 1)
 light_energy = 2.0
 light_indirect_energy = 2.0
@@ -412,7 +416,7 @@ spot_range = 15.0
 spot_angle = 60.0
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="museum/Spotlights"]
-transform = Transform3D(1, -1.8713763e-08, -7.692016e-09, 1.4644286e-11, -4.3786713e-08, 1, 0, -1.0000001, -5.5486453e-08, 0.63729715, 2.8992157, 4.9920554)
+transform = Transform3D(1, -1.8713763e-08, -7.69203e-09, 1.4644286e-11, -4.3815817e-08, 1, 0, -1.0000001, -5.5515557e-08, 0.63731736, 2.9068093, 4.992057)
 light_color = Color(0.79911095, 0.7418471, 0.570937, 1)
 light_energy = 2.0
 light_indirect_energy = 2.0
