@@ -2,6 +2,8 @@
 
 (Work in Progress)
 
+=> [Demo: a staic web site to demonstrate the Godot part](https://araobp.github.io/sveltekit-godot/demo/)
+
 This project demonstrates a powerful integration between SvelteKit and Godot, creating a web application that visualizes a tour plan in a 3D environment. The 3D assets and imagery are generated with the help of Gemini.
 
 <img src="docs/room1.jpg" width=800>
@@ -16,7 +18,6 @@ This project demonstrates a powerful integration between SvelteKit and Godot, cr
 +------+
  Node.js
 ```
-=> [Demo: a staic web site to demonstrate the Godot part](https://araobp.github.io/sveltekit-godot/demo/)
 
 Note: You can also enjoy the demo with [this Gemini Live app](https://github.com/araobp/sveltekit-gemini-live)
 
