@@ -251,7 +251,8 @@
                     },
 
                     onclose: (e) => {
-                        updateStatus("Close:" + e.reason);
+                        // updateStatus("Close:" + e.reason);
+                        updateStatus("Close: invalid API key or some connection issues");
                     },
                 },
                 config: {
