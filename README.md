@@ -2,6 +2,8 @@
 
 This project demonstrates how Gemini Live can be utilized to provide self-services within museum environments, offering an interactive and engaging experience for visitors.
 
+## Experience the Gemini-Live-powered Museum!
+
 Run this simulator on your PC/Mac:
 
 => [Musuem on GitHub Page](https://araobp.github.io/godot-museum/demo/)
