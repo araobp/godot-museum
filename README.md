@@ -4,6 +4,6 @@ This project demonstrates how Gemini Live can be utilized to provide self-servic
 
 Run this simulator on your PC/Mac:
 
-=> [Musuem demo on GitHub Page](https://araobp.github.io/godot-museum/demo/)
+=> [Musuem on GitHub Page](https://araobp.github.io/godot-museum/demo/)
 
 Then scan the QR code with your smartphone's camera in the scene. Enjoy!
