@@ -25,8 +25,9 @@ sky_material = SubResource("ProceduralSkyMaterial_ycdy4")
 [sub_resource type="Environment" id="Environment_vivmo"]
 sky = SubResource("Sky_w48qg")
 ambient_light_source = 2
-ambient_light_color = Color(0.2665752, 0.26657522, 0.26657513, 1)
+ambient_light_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
 tonemap_mode = 2
+ssao_enabled = true
 sdfgi_use_occlusion = true
 glow_enabled = true
 glow_levels/1 = 9.0
