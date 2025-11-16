@@ -658,7 +658,7 @@ The New Town Hall is in the absolute center of Munich and is extremely easy to r
 The Munich New Town Hall is a magnificent blend of history, civic pride, and living tradition. It is the place where the pulse of the city can be felt most strongly, especially during the daily performance of the Glockenspiel.
 `;
 
-const Neuswanstein = `
+const Neuschwanstein = `
 # 🏰 Neuschwanstein Castle: The Fairy Tale Vision of King Ludwig II
 
 Perched dramatically on a rugged hill high above the village of Hohenschwangau, **Neuschwanstein Castle** is the most famous castle in Germany and a global icon of the Romantic era. It is not a medieval fortress but a 19th-century fantasy, a dream castle built for King Ludwig II of Bavaria. Its striking silhouette and dramatic location, nestled in the Alps, served as the direct inspiration for Walt Disney's Sleeping Beauty Castle, cementing its place in popular imagination as the ultimate fairy-tale structure.
@@ -1225,7 +1225,7 @@ export const GERMAN_TOUR_ATRACTIONS = {
     FrankfurtRoemer: FrankfurtRoemer,
     HeidelbergCastle: HeidelbergCastle,
     MunichNewTownHall: MunichNewTownHall,
-    Neuswanstein: Neuswanstein,
+    Neuschwanstein: Neuschwanstein,
     Rhine: Rhine,
     Rothenberg: Rothenberg,
     Schwarzwald: Schwarzwald,
