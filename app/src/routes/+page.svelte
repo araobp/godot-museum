@@ -4,7 +4,15 @@
     import { createBlob, decode, decodeAudioData } from "$lib/utils";
     import Visual3d from "$lib/Visual3d.svelte";
     import { GUTENBERG_BOOKS } from "$lib/scripts.ts";
+    import { GERMAN_TOUR_ATRACTIONS } from "$lib/scripts_germany.ts";
     import Camera from "../lib/Camera.svelte";
+
+    /**
+     * Combines multiple script objects into a single `SCRIPTS` object.
+     * This allows for a unified collection of content that can be referenced by QR codes.
+     * The spread syntax (...) is used to merge properties from different sources.
+     */
+    const SCRIPTS = { ...GUTENBERG_BOOKS, ...GERMAN_TOUR_ATRACTIONS };
 
     let dialogElement = $state();
     let geminiApiKey = $state("");
@@ -128,10 +136,15 @@
         inputNode = inputAudioContext.createGain();
         outputNode = outputAudioContext.createGain();
 
+        /**
+         * Retrieves user settings (Gemini API key and language) from local storage
+         * upon component mount. This ensures that user preferences are persisted
+         * across sessions. If no settings are found, it initializes them with
+         * default values.
+         */
         localStorage.getItem("geminiApiKey")
             ? (geminiApiKey = localStorage.getItem("geminiApiKey"))
             : (geminiApiKey = "");
-
         localStorage.getItem("lang")
             ? (lang = localStorage.getItem("lang"))
             : (lang = "en-US");
@@ -148,6 +161,9 @@
         // the AudioContext was first created.
         nextStartTime = outputAudioContext.currentTime;
 
+        /**
+         * Sets the language for both speech recognition and synthesis in the Gemini session.
+         */
         geminiConfig.languageCode = lang;
 
         // Google Gemini Client
@@ -170,7 +186,6 @@
      * receiving audio data and managing interruptions.
      */
     const initSession = async () => {
-        
         session?.close();
 
         // Establish a real-time, bidirectional connection to the Gemini model,
@@ -469,6 +484,12 @@
         dialogElement.showModal();
     };
 
+    /**
+     * Handles the submission of the settings dialog. It closes the dialog,
+     * persists the new Gemini API key and language selection to local storage,
+     * and then re-initializes the Gemini client with the updated configuration.
+     * Finally, it notifies the user that the session has been restarted.
+     */
     const onSettingsModified = () => {
         dialogElement.close();
         console.log(geminiApiKey);
@@ -487,10 +508,11 @@
      */
     $effect(async () => {
         if (qrCode === null || prevQrCode === qrCode) return;
-        if (!(qrCode in GUTENBERG_BOOKS)) return;
+        if (!(qrCode in SCRIPTS))
+            return;
 
         console.log(`Update context with this QR Code: ${qrCode}`);
-        await updateContext(GUTENBERG_BOOKS[qrCode]);
+        await updateContext(SCRIPTS[qrCode]);
         prevQrCode = qrCode;
     });
 </script>
