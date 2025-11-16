@@ -124,13 +124,13 @@
         inputNode = inputAudioContext.createGain();
         outputNode = outputAudioContext.createGain();
 
-        initClient();
+        initClient("ABC");
     });
 
     /**
      * Initializes the Google Gemini client and Web Audio API components.
      */
-    const initClient = async () => {
+    const initClient = async (apiKey) => {
         // The AudioContext.currentTime property is a read-only value
         // that returns the current time in seconds, measured from the moment
         // the AudioContext was first created.
@@ -138,7 +138,7 @@
 
         // Google Gemini Client
         client = new GoogleGenAI({
-            apiKey: process.env.GEMINI_API_KEY,
+            apiKey: apiKey,
             httpOptions: { apiVersion: "v1alpha" },
         });
 
