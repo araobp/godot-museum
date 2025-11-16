@@ -2,7 +2,7 @@
 
 (Work in Progress)
 
-=> [Demo](https://araobp.github.io/sveltekit-godot/demo/)
+=> [Demo](https://araobp.github.io/godot-museum/demo/)
 
 You can also enjoy the demo with [this Gemini Live app](https://github.com/araobp/sveltekit-gemini-live)
 
