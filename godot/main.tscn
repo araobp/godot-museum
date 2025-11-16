@@ -123,6 +123,7 @@ environment = SubResource("Environment_vivmo")
 [node name="LightmapGI" type="LightmapGI" parent="."]
 supersampling = true
 interior = true
+texel_scale = 2.0
 environment_mode = 0
 environment_custom_sky = SubResource("Sky_kek77")
 light_data = ExtResource("1_272bh")
@@ -243,7 +244,7 @@ offset_bottom = 540.0
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="museum/LargeDisplay/SubViewport/SubViewportContainer"]
 layout_mode = 2
-volume_db = -10.0
+volume_db = -20.0
 autoplay = true
 loop = true
 
@@ -276,7 +277,6 @@ visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="museum/Floor2"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-visible = false
 mesh = SubResource("PlaneMesh_0xm2m")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_h2yge")
@@ -444,8 +444,6 @@ api_servers = Array[String](["http://localhost:3000", "http://localhost:5173", "
 video_stream_player = NodePath("../museum/LargeDisplay/SubViewport/SubViewportContainer/VideoStreamPlayer")
 displays = NodePath("../museum/Displays")
 for_github_page = true
-
-[node name="HTTPRequest" type="HTTPRequest" parent="Manager"]
 
 [node name="SpotLights" type="Node3D" parent="."]
 
