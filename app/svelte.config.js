@@ -10,7 +10,7 @@ const config = {
 			}
 		),
 		paths: {
-			base: process.env.NODE_ENV === "production" ? "/sveltekit-gh-pages" : "",
+			base: process.env.NODE_ENV === "production" ? "/godot-museum" : "",
 		},
 	},
 };
