@@ -439,7 +439,7 @@
      * for the website URL provided by the scanned QR code.
      */
     const PROMPT = {
-        "en-US": (script) => {
+        "en-US": (script) => 
             `
         A museum visitor stands before an exhibition panel.
         This panel was created based on the following script.
@@ -447,17 +447,16 @@
         
         ## Script
         ${script}
-        `;
-        },
-        "ja-JP": (script) => {
+        `
+        ,
+        "ja-JP": (script) => 
             `
         博物館の訪問者がパネルの前に立っています。
         このパネルは次のスクリプトをベースに制作されました。
         このパネルについて日本語で手短に説明してください。
 
         ## Script
-        ${script}`;
-        },
+        ${script}`
     };
     const updateContext = async (script) => {
         // Send the URL as context
