@@ -685,7 +685,7 @@
 >
     <h2>Settings</h2>
     <div>
-        <label for="name">Gemini API Key: </label>
+        <label for="name">Gemini API Key </label>
         <input
             type="password"
             id="gemini-api-key"
@@ -698,7 +698,7 @@
         />
     </div>
     <div>
-        <label for="language">Language: </label>
+        <label for="language">Language </label>
         <select name="language" id="language" bind:value={lang}>
             <option value="en-US">English</option>
             <option value="ja-JP">Japanese</option>
