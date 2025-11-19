@@ -7,6 +7,8 @@
     import { GERMAN_TOUR_ATRACTIONS } from "$lib/scripts_germany.ts";
     import Camera from "../lib/Camera.svelte";
 
+    const LANGUAGES = { "en-US": "English", "ja-JP": "Japanese" };
+
     /**
      * Combines multiple script objects into a single `SCRIPTS` object.
      * This allows for a unified collection of content that can be referenced by QR codes.
@@ -38,12 +40,13 @@
      * - `languageCode`: The language for both speech recognition and synthesis.
      * - `systemInstruction`: A prompt to define the model's persona and role.
      */
+    const SYSTEM_INSTRUCTION = {
+        "en-US": "You are a guide for a museum",
+        "ja-JP": "あなたは博物館のガイドです",
+    };
     const geminiConfig = {
         model: "gemini-live-2.5-flash-preview",
         voice: "Leda",
-        //languageCode: "ja-JP",
-        languageCode: "en-US",
-        systemInstruction: "You are a guide for a museum",
     };
 
     /**
@@ -164,8 +167,6 @@
         /**
          * Sets the language for both speech recognition and synthesis in the Gemini session.
          */
-        geminiConfig.languageCode = lang;
-
         // Google Gemini Client
         client = new GoogleGenAI({
             apiKey: apiKey,
@@ -294,10 +295,10 @@
                                 voiceName: geminiConfig.voice,
                             },
                         },
-                        languageCode: geminiConfig.languageCode,
+                        languageCode: lang,
                     },
                     //                  enableAffectiveDialog: true,
-                    systemInstruction: geminiConfig.systemInstruction,
+                    systemInstruction: SYSTEM_INSTRUCTION[lang],
                 },
             });
         } catch (e) {
@@ -437,13 +438,33 @@
      * It instructs the model to clear its previous memory and act as a guide
      * for the website URL provided by the scanned QR code.
      */
+    const PROMPT = {
+        "en-US": (script) => {
+            `
+        A museum visitor stands before an exhibition panel.
+        This panel was created based on the following script.
+        Please briefly describe this panel in English.
+        
+        ## Script
+        ${script}
+        `;
+        },
+        "ja-JP": (script) => {
+            `
+        博物館の訪問者がパネルの前に立っています。
+        このパネルは次のスクリプトをベースに制作されました。
+        このパネルについて日本語で手短に説明してください。
+
+        ## Script
+        ${script}`;
+        },
+    };
     const updateContext = async (script) => {
-        const contextMessage = `In the showroom, the visitor is seeing a panel on the following script, explain the panel briefly: ${script}`;
         // Send the URL as context
         await session?.sendClientContent({
             turns: {
                 role: "user",
-                parts: [{ text: contextMessage }],
+                parts: [{ text: PROMPT[lang](script) }],
             },
             turnComplete: true,
         });
@@ -463,6 +484,10 @@
 
         const base64ImageData = captureImage();
         console.log(base64ImageData);
+        const PROMPT_IMAGE = {
+            "en-US": "The attached image was taken with the visitor's smartphone. Please describe the object located in the center of the image.",
+            "ja-JP": "訪問者のスマホで撮影された画像が添付されておりますが、画像の中央に位置するものについて説明してください。"
+        }
         await session?.sendClientContent({
             turns: {
                 role: "user",
@@ -473,7 +498,7 @@
                             data: base64ImageData,
                         },
                     },
-                    { text: "Explain about the image in the center" },
+                    { text: PROMPT_IMAGE[lang] },
                 ],
             },
             turnComplete: true,
@@ -508,8 +533,7 @@
      */
     $effect(async () => {
         if (qrCode === null || prevQrCode === qrCode) return;
-        if (!(qrCode in SCRIPTS))
-            return;
+        if (!(qrCode in SCRIPTS)) return;
 
         console.log(`Update context with this QR Code: ${qrCode}`);
         await updateContext(SCRIPTS[qrCode]);
