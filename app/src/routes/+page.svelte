@@ -45,8 +45,8 @@
         "ja-JP": "あなたは博物館のガイドです",
     };
     const geminiConfig = {
-        model: "gemini-live-2.5-flash-preview",
-        voice: "Leda",
+        model: "gemini-2.5-flash-native-audio-preview-12-2025",
+        voice: "Despina",
     };
 
     /**
