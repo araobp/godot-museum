@@ -1,3 +1,91 @@
+# Godotミュージアム
+
+このプロジェクトは、Gemini Live を活用して博物館環境でセルフサービスを提供し、来館者にインタラクティブで魅力的な体験をどのように提供できるかを示します。
+
+## Gemini Live搭載のミュージアムを体験しよう！
+
+PC/Macでこのシミュレーターを実行してください。
+
+=> [GitHub Pageでミュージアムを見る](https://araobp.github.io/godot-museum/demo/)
+
+次に、シーン内でスマートフォンのカメラでQRコードをスキャンしてください。
+
+カメラで検出されたURLをクリックすると、ウェブアプリが起動します。
+
+初回はGemini APIキーが必要です。キーアイコンをクリックしてください。
+
+お楽しみください！
+
+## プロジェクト構成
+
+このプロジェクトは主に3つの部分で構成されています。
+
+*   `godot/`: 3D博物館環境を構築するGodotプロジェクトです。
+*   `app/`: 博物館のインタラクティブなガイドとして機能するSvelteKitウェブアプリケーションです。
+*   `blender/`: Godotプロジェクトで使用される3DモデルのBlenderソースファイルが含まれています。
+
+## はじめに
+
+このプロジェクトをローカルで実行するには、GodotプロジェクトとSvelteKitアプリケーションをセットアップする必要があります。
+
+### 前提条件
+
+-   [Godot Engine](https://godotengine.org/) (バージョン 4.x)
+-   [Node.js](https://nodejs.org/) (バージョン 18.x 以降)
+-   [Blender](https://www.blender.org/) (オプション、3Dアセットの編集用)
+
+### Godot Museum
+
+1.  Godot Engineを開きます。
+2.  `godot/project.godot` ファイルをインポートします。
+3.  Godotエディタからプロジェクトを実行します。
+
+### SvelteKit App
+
+1.  `app` ディレクトリに移動します:
+    ```bash
+    cd app
+    ```
+2.  依存関係をインストールします:
+    ```bash
+    npm install
+    ```
+3.  開発サーバーを起動します:
+    ```bash
+    npm run dev
+    ```
+
+SvelteKitアプリケーションは `http://localhost:5173` で実行されます。
+
+## プロジェクトのビルド
+
+### Godot
+
+Godotプロジェクトをウェブ用にエクスポートするには：
+
+1.  Godotエディターで、「`Project > Export...`」に移動します。
+2.  「`Web`」プリセットを選択します。
+3.  「`Export Project`」をクリックし、出力先として「`docs/demo`」ディレクトリを選択します。
+
+### SvelteKit
+
+SvelteKitアプリケーションをビルドするには：
+
+1.  「`app`」ディレクトリに移動します。
+2.  以下のビルドコマンドを実行します。
+    ```bash
+    npm run build
+    ```
+
+本番環境用のファイルは「`app/build`」ディレクトリに生成されます。GitHub Pagesの場合、出力は「`docs/live`」にあります。
+
+## 仕組み
+
+Godot博物館シミュレーションはウェブブラウザで動作します。シミュレーション内には、スマートフォンでスキャンできるQRコードがあります。これらのQRコードはSvelteKitウェブアプリケーションにリンクしており、展示物に関する詳細情報を提供します。このウェブアプリケーションは、Gemini Liveを使用して、インタラクティブで会話形式の体験を提供します。
+
+---
+English translation
+
 # Godot Museum
 
 This project demonstrates how Gemini Live can be utilized to provide self-services within museum environments, offering an interactive and engaging experience for visitors.
@@ -83,92 +171,5 @@ The production-ready files will be in the `app/build` directory. For GitHub page
 
 The Godot museum simulation runs in a web browser. Inside the simulation, there are QR codes that can be scanned by a smartphone. These QR codes link to the SvelteKit web application, which provides more information about the exhibits. The web application uses Gemini Live to provide an interactive and conversational experience.
 
----
 
-## 日本語
-
-# Godotミュージアム
-
-このプロジェクトは、Gemini Live を活用して美術館環境でセルフサービスを提供し、来館者にインタラクティブで魅力的な体験をどのように提供できるかを示します。
-
-## Gemini Live搭載のミュージアMを体験しよう！
-
-PC/Macでこのシミュレーターを実行してください。
-
-=> [GitHub Pageでミュージアムを見る](https://araobp.github.io/godot-museum/demo/)
-
-次に、シーン内でスマートフォンのカメラでQRコードをスキャンしてください。
-
-カメラで検出されたURLをクリックすると、ウェブアプリが起動します。
-
-初回はGemini APIキーが必要です。キーアイコンをクリックしてください。
-
-お楽しみください！
-
-## プロジェクト構成
-
-このプロジェクトは主に3つの部分で構成されています。
-
-*   `godot/`: 3D美術館環境を構築するGodotプロジェクトです。
-*   `app/`: 美術館のインタラクティブなガイドとして機能するSvelteKitウェブアプリケーションです。
-*   `blender/`: Godotプロジェクトで使用される3DモデルのBlenderソースファイルが含まれています。
-
-## はじめに
-
-このプロジェクトをローカルで実行するには、GodotプロジェクトとSvelteKitアプリケーションをセットアップする必要があります。
-
-### 前提条件
-
--   [Godot Engine](https://godotengine.org/) (バージョン 4.x)
--   [Node.js](https://nodejs.org/) (バージョン 18.x 以降)
--   [Blender](https://www.blender.org/) (オプション、3Dアセットの編集用)
-
-### Godot Museum
-
-1.  Godot Engineを開きます。
-2.  `godot/project.godot` ファイルをインポートします。
-3.  Godotエディタからプロジェクトを実行します。
-
-### SvelteKit App
-
-1.  `app` ディレクトリに移動します:
-    ```bash
-    cd app
-    ```
-2.  依存関係をインストールします:
-    ```bash
-    npm install
-    ```
-3.  開発サーバーを起動します:
-    ```bash
-    npm run dev
-    ```
-
-SvelteKitアプリケーションは `http://localhost:5173` で実行されます。
-
-## プロジェクトのビルド
-
-### Godot
-
-Godotプロジェクトをウェブ用にエクスポートするには：
-
-1.  Godotエディターで、「`Project > Export...`」に移動します。
-2.  「`Web`」プリセットを選択します。
-3.  「`Export Project`」をクリックし、出力先として「`docs/demo`」ディレクトリを選択します。
-
-### SvelteKit
-
-SvelteKitアプリケーションをビルドするには：
-
-1.  「`app`」ディレクトリに移動します。
-2.  以下のビルドコマンドを実行します。
-    ```bash
-    npm run build
-    ```
-
-本番環境用のファイルは「`app/build`」ディレクトリに生成されます。GitHub Pagesの場合、出力は「`docs/live`」にあります。
-
-## 仕組み
-
-Godot美術館シミュレーションはウェブブラウザで動作します。シミュレーション内には、スマートフォンでスキャンできるQRコードがあります。これらのQRコードはSvelteKitウェブアプリケーションにリンクしており、展示物に関する詳細情報を提供します。このウェブアプリケーションは、Gemini Liveを使用して、インタラクティブで会話形式の体験を提供します。
 
